@@ -1,0 +1,125 @@
+/*NAVBAR*/
+#navbar{
+    background-image: url("../images/fondo-nav.PNG");
+
+}
+
+#logo {
+    width: 8%;
+}
+
+#logo img {
+    width: 130%;
+}
+#logo img:hover{
+    width: 140%;
+}
+
+/*HEADER*/
+#header2{
+    display: none;
+}
+
+#services{
+    background:transparent;
+}
+#services a:hover{
+    background: transparent;
+    color: #008d88 !important;
+}
+
+#perfil-ico{
+  text-align: right;
+}
+
+.btnr{
+  border-radius: 5px !important;
+}
+/*FOOTER*/
+
+#footer p {
+    margin: 0px auto;
+}
+
+
+
+/*FOOTER*/
+#footer-top .card{
+    background-image: url("../images/fondo-nav.PNG");
+}
+
+
+#footer-top a{
+    text-decoration: none;
+    color: #37bcf9;
+    transition: all 300ms;
+}
+
+#footer-top h5{
+    display: block;
+    background: url("../images/pxgray.png"), white;
+    height: 28px;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 20px;
+
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#footer-top ul {
+    text-align: center;
+    margin: 20px;
+    font-size: 15px;
+}
+
+#footer-top ul li{
+    margin-top: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#footer-top ul li a{
+    text-align: left;
+    display: block;
+    height: 40px;
+    transition: all 300ms;
+}
+
+
+#footer-top ul li:hover a{
+   padding-left: 40px;
+   color: white;
+}
+
+#footer-top iframe{
+    width: 100%;
+    height: 180px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 5px solid white;
+    box-shadow: 0px 0px 5px gray;
+}
+
+
+
+/*Main content*/
+.main-content{
+    min-height: 500px !important;
+}
+
+#main-body{
+    background-color: #37bcf9;
+
+}
+#main-sidebar{
+    background-color: aquamarine;
+
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+#drop{
+  height: 25px !important;
+}
