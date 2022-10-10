@@ -1,0 +1,10 @@
+img {
+    width: 100% !important;
+    height: 260px !important;
+}
+
+img:hover {
+    background-color: blue;
+    border: 2px dashed rgb(83, 114, 199);
+    border-radius: 20px;
+}

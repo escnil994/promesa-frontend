@@ -1,0 +1,66 @@
+<div class="row">
+
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Productos ({{ products.length }})</h4>
+                <div *ngIf="products.length === 0" class="alert alert-info">
+                    <p class="mb-0">No hay productos que coincidan</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr *ngIf="products.length> 0">
+                                <th>foto</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of products" class="cursor
+                                hover-look" routerLink="/{{param}}/products/{{product.code}}">
+                                <th>
+
+                                    <img [src]="product.image" class="image-user">
+                                </th>
+                                <th>{{product.name}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Categorías ({{catgories.length}})</h4>
+                <div *ngIf="catgories.length === 0" class="alert alert-info">
+                    <p class="mb-0">No hay categorias que coincidan</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr *ngIf="catgories.length> 0">
+                                <th>foto</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let categories of catgories" class="cursor hover-look" routerLink="/{{param}}/category/{{categories.code}}">
+                                <th>
+
+                                    <img [src]="categories.image" class="image-user">
+                                </th>
+                                <th>{{categories.name}}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

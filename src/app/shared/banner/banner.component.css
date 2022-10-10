@@ -1,0 +1,8 @@
+.carousel {
+    margin-top: 75px;
+    height: auto !important;
+}
+
+.carousel-item {
+    height: 225px !important;
+}

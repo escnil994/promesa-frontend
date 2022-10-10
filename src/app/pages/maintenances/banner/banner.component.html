@@ -1,0 +1,129 @@
+
+
+<div class="row container">
+
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Foto</h4>
+                <h6 class="card-subtitle">Aquí puedes actualizar tu foto</h6>
+                <div class="text-center">
+
+                    <div *ngIf="!imageTemp1">
+
+                        <img [src]="image1" class="image-preview">
+                    </div>
+                    <div *ngIf="imageTemp1">
+
+                        <img src="{{ imageTemp1 }}" class="image-preview">
+                        <p class="text-danger">Image preview</p>
+
+                    </div>
+
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFileLang2" lang="es" (change)="changeImage('first',$event.target.files[0])">
+                        <br>
+                        <label id="chooseFile" class="custom-file-label" for="customFileLang2">Selecciona una foto</label>
+                    </div>
+
+
+                </div>
+
+                <br>
+
+                <button type="submit, reset" class="btn btn-block text-white
+                    waves-effect waves-light m-r-10 btn-themecolor" (click)="uploadImage()">
+                    <li class="fa fa-save"></li> Cambiar imagen
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Foto</h4>
+                <h6 class="card-subtitle">Aquí puedes actualizar tu foto</h6>
+                <div class="text-center">
+
+                    <div *ngIf="!imageTemp2">
+
+                        <img [src]="image2" class="image-preview">
+                    </div>
+                    <div *ngIf="imageTemp2">
+
+                        <img src="{{ imageTemp2 }}" class="image-preview">
+                        <p class="text-danger">Image preview</p>
+
+                    </div>
+
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFileLang3" lang="es" (change)="changeImage('second',$event.target.files[0])">
+                        <br>
+                        <label id="chooseFile" class="custom-file-label" for="customFileLang3">Selecciona una foto</label>
+                    </div>
+
+
+                </div>
+
+                <br>
+
+                <button type="submit, reset" class="btn btn-block text-white
+                    waves-effect waves-light m-r-10 btn-themecolor" (click)="uploadImageSecond()">
+                    <li class="fa fa-save"></li> Cambiar imagen
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Foto</h4>
+                <h6 class="card-subtitle">Aquí puedes actualizar tu foto</h6>
+                <div class="text-center">
+
+                    <div *ngIf="!imageTemp3">
+
+                        <img [src]="image3" class="image-preview">
+                    </div>
+                    <div *ngIf="imageTemp3">
+
+                        <img src="{{ imageTemp3 }}" class="image-preview">
+                        <p class="text-danger">Image preview</p>
+
+                    </div>
+
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="changeImage('third',$event.target.files[0])">
+                        <br>
+                        <label id="chooseFile" class="custom-file-label" for="customFileLang">Selecciona una foto</label>
+                    </div>
+
+
+                </div>
+
+                <br>
+
+                <button type="submit, reset" class="btn btn-block text-white
+                    waves-effect waves-light m-r-10 btn-themecolor" (click)="uploadImageThird()">
+                    <li class="fa fa-save"></li> Cambiar imagen
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,170 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input type="text" placeholder="Buscar categorías" class="form-control" (keyup)="search( searchWord.value )" #searchWord>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col">
+
+    <div class="float-right ">
+        <button (click)="createNewCategory()" class="btn
+            btn-primary">
+            <li class="fa fa-hospital-o"></li>
+            Crear nueva categoría
+        </button>
+    </div>
+
+</div>
+<br><br><br>
+
+<div *ngIf="loading" class="row animated fadeIn fast">
+    <div class="col-12">
+
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="row margen" *ngIf="!loading">
+
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="row">
+                    <div class="col-8">
+
+                        <h4 class="card-title">Categorías</h4>
+                        <h6 class="card-subtitle">Categorias registradas en este sitio
+                        </h6>
+
+                    </div>
+
+                </div>
+
+
+                <div *ngIf="!show_hide" class="text-center " (click)="show_hide=true">
+
+                    <a class="nav-link waves-effect waves-dark p-3" id="show-hide">
+                        Ver formato de edición<div class="notify">
+                            <span class="heartbit"></span>
+                            <span class="point"></span>
+                        </div>
+                    </a>
+
+                </div>
+
+
+                <div class="row">
+
+
+                    <div *ngFor="let category of categories" class="col-lg-6
+                        col-md-6">
+                        <!-- Card -->
+                        <div class="card">
+                            <h1 *ngIf="show_hide" class="text-center
+                                text-themecolor">{{category.name}}</h1>
+
+                            <img class="card-img-top img-responsive cursor" title="Click para cambiar la imagen" src="{{category.image}}" (click)="openModal( category )" alt="{{category.name}}">
+                            <div *ngIf="!show_hide">
+                                <h1 class="text-center text-themecolor">{{category.name}}</h1>
+                            </div>
+                            <div *ngIf="show_hide" class="text-center">
+
+                                <div class="card-body">
+                                    <input type="text" class="form-control mb-2" placeholder="Nombre de la categoría" [(ngModel)]="category.name">
+                                    <textarea class="form-control" placeholder="Escribe una pequeña descripción de esta categoria" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="category.description" maxlength="60"></textarea>
+                                    <span class="text-danger">El campo solo acepta 60 caracteres</span>
+                                </div>
+
+                                <button type="button" class="btn btn-themecolor
+                                    mb-1" (click)="saveChanges(category)">Guardar
+                                    Cambios</button>
+                                <br>
+                                <button type="button" class="btn btn-danger
+                                    mt-1" (click)="deleteCategory(category)">Eliminar
+                                    categoría</button>
+                                <br>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div *ngIf="show_hide" class="text-center " (click)="show_hide=false">
+
+                    <a class="nav-link waves-effect waves-dark p-3" id="show-hide">
+                        Ocultar formato de edición<div class="notify">
+                            <span class="heartbit"></span>
+                            <span class="point"></span>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+            <div class="text-center">
+                <button (click)="changePage(-6)" class="btn btn-secondary">Anterior</button>
+                <button (click)="changePage(6)" class="btn btn-secondary">Siguiente</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="w140">Imagen</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Detalles</th>
+                <th class="text-nowrap w140">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let category of categories">
+                <td>
+                    <img class="image-user cursor" id="resetImage" src="{{category.image}}" (click)="openModal(category)">
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Nombre de la categoría" [(ngModel)]="category.name">
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Descripción de la
+                        categoría" [(ngModel)]="category.description">
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Descripción de la
+                        categoría" [(ngModel)]="category.details">
+                </td>
+                <td class="text-nowrap text-center">
+                    <a (click)="saveChanges(category)" class="cursor" data-toggle="tooltip" title="Guardar cambios">
+                        <i class="fa fa-pencil text-inverse
+                            m-r-10"></i>
+                    </a>
+                    <a (click)="deleteHospital(category)" class="cursor" data-toggle="tooltip" title="Borra Categoría">
+                        <i class="fa fa-close text-danger"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->

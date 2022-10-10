@@ -1,0 +1,23 @@
+.img-products {
+    height: 200px !important;
+}
+
+.image4 {
+    text-align: center;
+    height: 150px;
+}
+
+angular-file-uploader {
+    font-size: 5px !important;
+}
+
+#product-details:hover {
+    box-shadow: 0 0 20px rgba(14, 13, 13, 0.2);
+    cursor: pointer;
+    background-color: rgb(238, 236, 236);
+}
+
+.hhhh {
+    border: 1px solid white;
+    border-radius: 6px;
+}

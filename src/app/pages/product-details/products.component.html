@@ -1,0 +1,136 @@
+<div class="container">
+
+    <h1 class="title">
+        <li>
+            {{name}}
+        </li>
+    </h1>
+    <div class="row margen">
+        <div class="col-md-6">
+            <div class="card card-outline-warning">
+
+
+                <div id="carouselExampleIndicator" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicator" data-slide-to="5" class="active"></li>
+                        <li data-target="#carouselExampleIndicator" data-slide-to="6"></li>
+                        <li data-target="#carouselExampleIndicator" data-slide-to="7"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block aaaa" [src]="image" alt="Imagen 1"> 
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block aaaa" [src]="image1" alt="Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block aaaa" [src]="image2" alt="Image 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block aaaa" [src]="image3" alt="Image 4">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block aaaa" [src]="image4" alt="Image 5">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicator" role="button" data-slide="prev">
+                        <span  class="text-dark carousel-control-prev-icon " aria-hidden="true"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicator" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-outline-success ml-3">
+
+                <div class="product-info">
+                    <h2 class="product-title">{{name}}</h2>
+                    <span class="product-id">{{code}}</span>
+
+                    <br>
+                    <!-- PRECIOS -->
+                    <span class="product-price">
+    
+                        <del *ngIf="discount> 1" class="text-black mr-2"><strong>${{price}}</strong></del>
+                        <span class="text-danger">${{to_pay}}</span><br>
+                    <span *ngIf="discount> 1" class="discount label-themecolor">
+                            -{{discount}}% OFF</span>
+                    </span>
+                    <!-- PRECIOS -->
+
+
+                    <div class="clear"></div>
+                    <form id="xcart" action="/carro-de-compras" method="post">
+
+                        <span class="product-field">CANTIDAD:</span>
+                        <div>
+                            <div class="product-qty-control">
+                                <input type="button" (click)="decrementValue()" value="-" class="btn-qty mr-1">
+                                <input type="text" name="ProductQty" id="ProductQty" [ngModel]="num1" readonly maxlength="2" size="1" class="qty
+                                    mr-1">
+                                <input type="button" (click)="incrementValue()" value="+" class="btn-qty mr-1">
+                            </div>
+                            <div class="product-cta">
+                                <button (click)="buy()" class="btn-themecolor cursor" id="addToCart">
+                                    <i class="mdi mdi-cart-plus"></i> AGREGAR AL CARRITO
+                                </button>
+                                <input type="hidden" name="ProductReference" id="ProductReference" value="PZA-721S1">
+                                <input type="hidden" name="cmd" id="cmd" value="add2Cart">
+                            </div>
+                            <table class="product-detail float-left" border="0" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <td height="32" style="border-bottom:2px
+                                            solid #000;">
+                                            <span>DETALLE DE PRODUCTO</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="middle">
+                                            <div id="Description" style="font-size:.9rem;font-weight:
+                                                300;">
+                                                <p>{{description}}</p>
+                                                <ul>
+                                                    <li *ngFor="let item of details">
+                                                        {{ item[0][0] | uppercase }}{{ item | slice:1 }}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="features-buy">
+            <div class="feature-buy">
+                <h3><b>RETIRO EN TIENDA GRATIS</b></h3>
+                <p>ó</p>
+                <p>Envía a domicilio</p>
+            </div>
+            <div class="feature-buy">
+                <h3><b>COMPRAS SEGURAS</b></h3>
+                <p>Contamos con certificados de seguridad que cuidan toda tu información
+                </p>
+            </div>
+            <div class="feature-buy">
+
+                <h3><b>FACILIDAD DE CAMBIOS</b></h3>
+                <p>En tus compras por medio de todas nuestras tiendas
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

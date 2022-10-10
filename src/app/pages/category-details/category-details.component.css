@@ -1,0 +1,13 @@
+.image-product {
+    height: 300px;
+}
+
+#product-details:hover {
+    box-shadow: 0 0 20px rgba(14, 13, 13, 0.2);
+    cursor: pointer;
+}
+
+#category-details{
+    margin: 10px !important;
+}
+

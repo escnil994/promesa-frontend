@@ -1,0 +1,172 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+
+                <input type="text" class="form-control" placeholder="Buscar usuarios"
+                    (keyup)="search( txtSearch.value )" #txtSearch>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loading" class="row animated fadeIn fast">
+    <div class="col-12">
+
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+
+    </div>
+</div>
+
+
+
+<section class="team text-center">
+    <div class="p-5">
+        <h1 class="float-left">Usuarios registrados en el sitio</h1>
+        <div class="clearfix"></div>
+        <p class="float-left">total de usuarios ({{ totalUsers }}) {{to}}</p>
+        <div class="clearfix"></div>
+        <div class="row">
+            <!--MEMBER-->
+            <div class="card" title="Este usuario no puede ser modificado, en caso de tener un problema contactame">
+                <div class="card-body" style="background-color: #cdd4db; color: red;">
+                  
+                    <img class="mb-2" src="https://pickaface.net/gallery/avatar/20120409_181826_3155_Administrador.png"  alt="avatar">
+                    <h5>Nilson Escobar</h5>
+
+                    <div id="userDesc">
+                        <h3 class="text-danger">Super-admin</h3>
+                        <div class="clearfix"></div>
+                        <p class="text-left" ><strong>Correo:</strong>escnil994@gmail.com</p>
+                        <br>
+                        <p class="text-left" ><strong>Teléfono:</strong>75068027</p>
+                        <br>
+                        <p class="text-left" ><strong>Dirección:</strong>San Salvador</p>
+                        <br>
+                        <p class="text-left" ><strong>DUI:</strong>0000000000</p>
+                        <br>
+                        <button class="btn btn-danger">SUPER_ADMIN</button>
+                        <br>
+
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="d-flex flex-row justify-content-center">
+                        <div class="p-4">
+                            <a href="https://wa.me/5037568027" target="_blank" title="Contactame por whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                        <div class="p-4">
+                            <a href="mailto:escnil994@gmail.com" target="_blank" title="Escribeme un correo">
+                                <i class="fas fa-at"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" *ngFor="let user of users">
+                <div class="card">
+                    <div class="card-body" style="background-color: #cdd4db;">
+                      
+                        <img class="mb-2" [src]="user.image" (click)="openModal( user )" alt="avatar">
+                        <h5>{{user.name.split(' ')[0]}} {{user.last_name.split(' ')[0]}}</h5>
+
+                        <div id="userDesc">
+                            <p class="float-left" >
+                                <select title="Cambia el rol" class="form-control" [(ngModel)]="user.role" (change)="changeRole(user)">
+                                    <option value="ADMIN">Administrador</option>
+                                    <option value="USER">Usuario</option>
+                                </select>
+                            </p>
+                            <div class="clearfix"></div>
+                            <p class="text-left" ><strong>Correo:</strong> {{user.email}}</p>
+                            <br>
+                            <p class="text-left" ><strong>Teléfono:</strong> {{user.phone}}</p>
+                            <br>
+                            <p class="text-left" ><strong>Dirección:</strong> {{user.direction}}</p>
+                            <br>
+                            <p class="text-left" ><strong>DUI:</strong> {{user.dui}}</p>
+                            <br>
+                            <p class="text-left" ><strong>Registrado con:</strong>
+                                <span class="text-danger font-weight-bold" *ngIf="user.google">  <i class="fab fa-google">oogle</i></span>
+                                <span class="text-info font-weight-bold" *ngIf="!user.google"><i class="fas fa-at"></i>Email</span>
+                            </p>
+                            <br>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="d-flex flex-row justify-content-center">
+                            <div class="p-4">
+                                <a href="https://wa.me/503{{user.whatsapp}}" target="_blank" title="Contactame por whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                            <div class="p-4">
+                                <a href="mailto:{{user.email}}" target="_blank" title="Escribeme un correo">
+                                    <i class="fas fa-at"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+    <div class="text-center nexback" *ngIf="txtSearch.value.length === 0">
+
+        <button (click)="changePage(-5)" class="btn btn-secondary text-center">Anteriores</button> &nbsp;
+        <button (click)="changePage(5)" class="btn btn-secondary text-center">Siguientes</button>
+
+    </div>
+
+
+
+
+
+
+<!-- <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="w100">Imagen</th>
+            <th>Correo</th>
+            <th>Nombre</th>
+            <th class="w140">Rol</th>
+            <th class="w100">Auth</th>
+            <th class="text-nowrap w100">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td class="text-center"><img class="image-user
+                    cursor" [src]="user.image" (click)="openModal( user )"></td>
+            <td>{{user.email}}</td>
+            <td>{{user.name}}</td>
+            <td>
+                <select class="form-control" [(ngModel)]="user.role" (change)="changeRole(user)">
+                    <option value="ADMIN">Admin</option>
+                    <option value="USER">User</option>
+                </select>
+            </td>
+            <td>
+                <span *ngIf="user.google" class="label
+                    label-danger">Google</span>
+                <span *ngIf="!user.google" class="label
+                    label-info">Email</span>
+            </td>
+            <td class="text-nowrap text-center">
+                <a (click)="deleteUser(user)" class="pointer" data-toggle="tooltip" data-original-title="Borrar"> <i class="fa fa-close text-danger"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table> -->

@@ -1,0 +1,17 @@
+.page-wrapper {
+    min-height: 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 10px !important;
+}
+
+.fix-header {
+    padding-top: 0px !important;
+}
+
+.container-fluid {
+    padding: 0px 0px;
+}
+
+#adminp{
+    margin-top: 30px !important;
+}

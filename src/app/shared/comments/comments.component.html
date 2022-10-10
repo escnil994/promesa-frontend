@@ -1,0 +1,99 @@
+<div id="comments" class="container mb-2">
+
+    <h1 class="float-left">* Ultimos comentarios</h1>
+
+    <br>
+    <br>
+
+    <div class="row" style="clear:both;">
+        <div class="col">
+            <div class="comment" *ngFor="let item of comment">
+                <div class="row unit">
+
+                    <div *ngIf="role==='ADMIN'" class="col-12">
+                        <i class="mdi mdi-close text-danger cursor float-right" title="Eliminar comentario"
+                            (click)="deleteComment(item.uid)"></i>
+                    </div>
+                    <div class="col-1 p-0">
+                        <img class="w-50 float-left p-0" [src]="item.user.image" alt="">
+
+                    </div>
+                    <div class="col-11 p-0">
+                        <h4 class="text-left text-uppercase">{{item.user.name}}</h4>
+
+                        <p class="text-left float-left">
+                            {{item.comment}}
+                        </p>
+                        <br>
+                        
+                        <p class="text-right float-right pr-5 font-weight-bold">
+                            creado: {{ item.created | date:"dd/MM/yyyy"}}
+
+                        </p>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a (click)="changePage(-6)" class="text-themecolor cursor" title="Anterior"><i class="fas fa-backward"></i> </a>
+        <a (click)="changePage(6)" class="text-themecolor cursor" title="Siguiente"><i class="fas fa-forward"></i></a>
+    </div>
+
+</div>
+
+<br>
+<br><br><br>
+
+<div class="container card-group">
+    <div class="card col-12" id="comment-log">
+        <div class="card-body">
+            <div class="commentTitle">
+                <h3 class="card-title text-themecolor float-left">Dejanos tu comentario
+                </h3>
+
+            </div>
+            <br>
+
+            <div class="{{exito}} mt-2">
+                <i [class]="close" class="text-themecolor cursor" (click)="change()"></i>
+                <h5 class="text-left float-left text-danger" id="success"></h5>
+                <a *ngIf="link11" [routerLink]="['/login']">Aquí</a>
+            </div>
+            <form action="" [formGroup]="commentsForm" (submit)="saveComment()">
+                <div class="form-group">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" formControlName="comment" rows="3">
+
+                    </textarea>
+                </div>
+
+                <input type="submit" class="btn btn-themecolor float-left" [disabled]="commentsForm.invalid"
+                    value="Comentar">
+            </form>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+<div class="container">
+    <div class="card col-12" id="comment-face">
+        <div class="card-body">
+            <h5 class="card-title text-themecolor float-left">Comenta con facebook
+            </h5>
+
+            <div class="fb-comments text-center" data-href="https://www.facebook.com/Escnil994" data-width=""
+                data-numposts="5">
+
+
+            </div>
+        </div>
+
+</div>

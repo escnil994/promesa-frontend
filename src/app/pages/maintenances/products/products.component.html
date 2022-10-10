@@ -1,0 +1,63 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input type="text" placeholder="Buscar Productos" class="form-control" (keyup)="search( searchWord.value )" #searchWord>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row p-2">
+
+
+    <div class="col-12 text-center">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <h1>Todos los productos</h1>
+                    </div>
+                    <div class="col">
+                        <div class="float-rigth">
+                            <a routerLink="/dashboard/product-maintenance/new" class="btn
+                                btn-themecolor">
+                                Nuevo Producto
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- column -->
+
+    <div *ngFor="let product of products" [routerLink]="['/dashboard/product-maintenance/',product.code]" class="col-lg-3 col-md-6">
+        <!-- Card -->
+
+
+        <div class="card p-2" id="product-details">
+            <img class="card-img-top img-responsive img-products" [src]="product.image" alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title text-themecolor">{{product.name}}</h2>
+                <hr>
+                <p class="card-text">{{product.description}}</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="text-center">
+    <button (click)="changePage(-12)" class="btn btn-secondary f-l">Anterior</button>
+    <button (click)="changePage(12)" class="btn btn-secondary f-r">Siguiente</button>
+</div>

@@ -1,0 +1,60 @@
+.comment {
+    min-height: 100px;
+    padding-left: 25px !important;
+    padding-left: 25px !important;
+    padding-bottom: 0px !important;
+    border-radius: 5px;
+}
+.comment:hover{
+    border: 1px solid rgb(228, 245, 245);
+}
+
+.comment img {
+    border-radius: 100px;
+}
+
+.success{
+    overflow: hidden;
+    border-color: rgb(186, 234, 243);
+    text-align: center;
+    border-style: double; 
+    background-color: rgb(228, 245, 245);
+    border-width: 4px; 
+    width: 100%;
+    height: auto;
+}
+
+.next-back{
+    background-color: white;
+    border: 0px !important;
+    font-size: 35px;
+}
+
+#comments{
+    margin-top: 100px;
+}
+
+.UFIInputContainer textarea{
+    width: 90% !important;
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    #comment-log{
+        width: 100% !important;
+    }
+    
+    #comment-face{
+        width: 100% !important;
+    }
+  }
+
+
+
+  .cursor{
+      font-size: 25px;
+      border: 0 !important;
+      margin: 15px;
+  }
+

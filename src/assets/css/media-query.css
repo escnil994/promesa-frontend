@@ -1,9 +1,0 @@
-@media (max-width: 767px) {
-    #header1{
-        display: none;
-    }
-    #header2{
-        visibility: visible;
-    }
-   
-}

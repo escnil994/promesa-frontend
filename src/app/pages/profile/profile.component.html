@@ -1,0 +1,149 @@
+<div class="row">
+
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Perfil de usuario</h4>
+                <h6 class="card-subtitle">Ajustes</h6>
+                <form [formGroup]="profileForm" class="form p-t-20" (submit)="updateProfile()">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Nombre</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Ingresa tu
+                                nombre" formControlName="name">
+                        </div>
+                    </div>
+
+                    <div *ngIf="show" class="show-more">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Apellido</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="ti-user"></i>
+                                </div>
+                                <input type="text" class="form-control" id="exampleInputuname" placeholder="Ingresa tu Apellido" formControlName="last_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Genero</label>
+                            <br>
+                            <div class="input-group">
+
+                                <div class="input-group-addon">
+                                    <i *ngIf="user.genre ==='Femenino'" class="fas fa-female"></i>
+                                    <i *ngIf="user.genre ==='Masculino'" class="fas fa-male"></i>
+                                    <i *ngIf="!user.genre || user.genre ==='Elegir'" class="fal fa-sign-in"></i>
+                                </div>
+
+                                <select class="custom-select" formControlName="genre">
+                                    <option selected>Elegir</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Teléfono / Celular</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="icon-phone"></i></div>
+                                <input type="text" class="form-control" id="exampleInputuname" placeholder="Ingresa tu número" formControlName="phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Numero de whatsapp</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fab fa-whatsapp"></i></div>
+                                <input type="text" class="form-control" id="exampleInputuname" placeholder="Ingresa tu número de whatsapp" formControlName="whatsapp">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Dirección</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fas fa-route"></i></div>
+                                <input type="text" class="form-control" id="exampleInputuname" placeholder="Ingresa tu dirección" formControlName="direction">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Número dui</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa
+                                        fa-id-card"></i></div>
+                                <input type="text" class="form-control" id="exampleInputuname" placeholder="Digita tu dui" formControlName="dui">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pwd1">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Ingresa un email" formControlName="email" [readonly]="user">
+                        </div>
+                    </div>
+
+                    <div *ngIf="show" class="show-more">
+                        <p class="text-center mb-3 " id="show-hide" (click)="show=false">Ocultar</p>
+                    </div>
+
+                    <div *ngIf="!show" class="show-more">
+                        <p class="text-center mb-3" id="show-hide" (click)="show=true">Ver mas</p>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-block text-white
+                        waves-effect waves-light m-r-10 btn-themecolor" [disabled]="profileForm.invalid">
+                        <li class="fa fa-save"></li> Guardar cambios
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Foto</h4>
+                <h6 class="card-subtitle">Aquí puedes actualizar tu foto</h6>
+                <div class="text-center">
+
+                    <div *ngIf="!imageTemp">
+
+                        <img src="{{user.image}}" class="image-preview">
+                    </div>
+                    <div *ngIf="imageTemp">
+
+                        <img src="{{ imageTemp }}" class="image-preview">
+                        <p class="text-danger">Image preview</p>
+
+                    </div>
+
+
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFileLang" lang="es" (change)="changeImage($event.target.files[0])">
+                        <br>
+                        <label id="chooseFile" class="custom-file-label" for="customFileLang">Selecciona una foto</label>
+                    </div>
+
+
+                </div>
+
+                <br>
+
+                <button type="submit, reset" class="btn btn-block text-white
+                    waves-effect waves-light m-r-10 btn-themecolor" (click)="uploadImage()">
+                    <li class="fa fa-save"></li> Cambiar imagen
+                </button>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

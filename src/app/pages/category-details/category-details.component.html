@@ -1,0 +1,43 @@
+<h1>Productos de la categoría</h1>
+<div *ngIf="session" class="row margen">
+    <!-- column -->
+
+    <!-- column -->
+    <div *ngFor="let product of products" routerLink="/home/products/{{product.code}}" class="col-lg-3 col-md-6">
+        <!-- Card -->
+
+        <div id="product-details" class="card">
+            <img class="card-img-top img-responsive image-product" [src]="product.image" alt="Card image cap">
+            <div class="card-body">
+                <div class="card-title text-themecolor"><span class="price-n">{{product.name}}</span><span
+                        class="price-p">${{product.price}}</span></div>
+                <div class="text-danger">***<span class="price-pb">-{{product.discount}}%</span></div>
+                <hr>
+                <span class="card-text">{{product.description}}</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="!session" class="row margen">
+    <!-- column -->
+
+    <!-- column -->
+    <div *ngFor="let product of products" routerLink="/home/products/{{product.code}}" class="col-lg-3 col-md-6">
+        <!-- Card -->
+
+        <div id="product-details" class="card">
+            <img class="card-img-top img-responsive image-product" [src]="product.image" alt="Card image cap">
+            <div class="card-body">
+                <div class="card-title text-themecolor"><span class="price-n">{{product.name}}</span><span
+                        class="price-p">${{product.price}}</span></div>
+                <div class="text-danger">***<span class="price-pb">-{{product.discount}}%</span></div>
+                <hr>
+                <span class="card-text">{{product.description}}</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
